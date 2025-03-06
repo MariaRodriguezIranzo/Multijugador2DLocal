@@ -131,7 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 38253025}
-  - component: {fileID: 38253026}
   m_Layer: 0
   m_Name: CoinSpawner (4)
   m_TagString: Coin
@@ -154,25 +153,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 140833326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &38253026
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38253024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b399fdf6688084999c8f4e11e0777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 4899698368775895401, guid: 9235fb05bfbbdac4da6dc2ace4301b82, type: 3}
-  coinSpawnPoints:
-  - {fileID: 38253025}
-  - {fileID: 38253025}
-  - {fileID: 38253025}
-  - {fileID: 38253025}
-  - {fileID: 38253025}
 --- !u!1 &126433456
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +320,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 134142865}
-  - component: {fileID: 134142866}
   m_Layer: 0
   m_Name: CoinSpawner (1)
   m_TagString: Coin
@@ -363,25 +342,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 140833326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &134142866
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 134142864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b399fdf6688084999c8f4e11e0777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 4899698368775895401, guid: 9235fb05bfbbdac4da6dc2ace4301b82, type: 3}
-  coinSpawnPoints:
-  - {fileID: 2109583516}
-  - {fileID: 134142865}
-  - {fileID: 673493284}
-  - {fileID: 437281448}
-  - {fileID: 38253025}
 --- !u!1 &140833325
 GameObject:
   m_ObjectHideFlags: 0
@@ -607,7 +567,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 437281448}
-  - component: {fileID: 437281449}
   m_Layer: 0
   m_Name: CoinSpawner (3)
   m_TagString: Coin
@@ -630,25 +589,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 140833326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &437281449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437281447}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b399fdf6688084999c8f4e11e0777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 4899698368775895401, guid: 9235fb05bfbbdac4da6dc2ace4301b82, type: 3}
-  coinSpawnPoints:
-  - {fileID: 2109583516}
-  - {fileID: 134142865}
-  - {fileID: 673493284}
-  - {fileID: 437281448}
-  - {fileID: 38253025}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -741,7 +681,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 673493284}
-  - component: {fileID: 673493285}
   m_Layer: 0
   m_Name: CoinSpawner (2)
   m_TagString: Coin
@@ -764,25 +703,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 140833326}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &673493285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 673493283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36b399fdf6688084999c8f4e11e0777c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  coinPrefab: {fileID: 4899698368775895401, guid: 9235fb05bfbbdac4da6dc2ace4301b82, type: 3}
-  coinSpawnPoints:
-  - {fileID: 673493284}
-  - {fileID: 673493284}
-  - {fileID: 673493284}
-  - {fileID: 673493284}
-  - {fileID: 673493284}
 --- !u!1 &876069678
 GameObject:
   m_ObjectHideFlags: 0
@@ -942,7 +862,7 @@ Transform:
   m_GameObject: {fileID: 926152252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 642, y: 170, z: -9612.003}
+  m_LocalPosition: {x: 786, y: 170, z: -9612.003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1461,10 +1381,10 @@ MonoBehaviour:
   coinPrefab: {fileID: 4899698368775895401, guid: 9235fb05bfbbdac4da6dc2ace4301b82, type: 3}
   coinSpawnPoints:
   - {fileID: 2109583516}
-  - {fileID: 2109583516}
-  - {fileID: 2109583516}
-  - {fileID: 2109583516}
-  - {fileID: 2109583516}
+  - {fileID: 134142865}
+  - {fileID: 673493284}
+  - {fileID: 437281448}
+  - {fileID: 38253025}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
