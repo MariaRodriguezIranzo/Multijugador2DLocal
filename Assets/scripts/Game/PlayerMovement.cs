@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviourPunCallbacks
 {
-    public float speed = 60f; // Ajusta la velocidad a un valor más alto
+    public float speed = 10f; // Velocidad ajustada
+    public float jumpForce = 7f; // Fuerza de salto
+    public LayerMask groundLayer;
+
     private Rigidbody2D rb;
+    private BoxCollider2D col;
     private Vector2 movement;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<BoxCollider2D>(); // Detectamos el collider automáticamente
 
         if (!photonView.IsMine)
         {
@@ -17,8 +22,8 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
             return;
         }
 
-        // Aseguramos que no hay gravedad ni movimiento no deseado al comenzar
-        rb.gravityScale = 0;
+        // Activamos la gravedad para evitar que el personaje flote
+        rb.gravityScale = 1;
         rb.velocity = Vector2.zero;
     }
 
@@ -26,9 +31,14 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine)
         {
-            // Obtener las entradas del jugador para el movimiento
+            // Movimiento solo en horizontal
             movement.x = Input.GetAxis("Horizontal");
-            movement.y = Input.GetAxis("Vertical");
+
+            // Si está en el suelo y presionamos "W", salta
+            if (Input.GetKeyDown(KeyCode.W) && IsGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            }
         }
     }
 
@@ -36,13 +46,14 @@ public class PlayerMovement : MonoBehaviourPunCallbacks
     {
         if (photonView.IsMine && rb != null)
         {
-            // Aplicar la velocidad correctamente
-            rb.velocity = movement * speed;
+            // Movimiento horizontal sin afectar el eje Y
+            rb.velocity = new Vector2(movement.x * speed, rb.velocity.y);
         }
-        else if (rb != null)
-        {
-            // Evitar que los jugadores remotos se muevan
-            rb.velocity = Vector2.zero;
-        }
+    }
+
+    // Detectar si el personaje está tocando el suelo
+    private bool IsGrounded()
+    {
+        return Physics2D.BoxCast(col.bounds.center, col.bounds.size, 0f, Vector2.down, 0.1f, groundLayer);
     }
 }
