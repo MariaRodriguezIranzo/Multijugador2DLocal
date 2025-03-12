@@ -5,6 +5,7 @@ public class CoinSpawner : MonoBehaviourPun
 {
     public GameObject coinPrefab;         // Prefab de la moneda
     public Transform[] coinSpawnPoints;   // Array de puntos de spawn para las monedas
+    public float respawnTime = 3f;        // Tiempo que tardan las monedas en reaparecer
 
     void Start()
     {
@@ -30,6 +31,17 @@ public class CoinSpawner : MonoBehaviourPun
         else
         {
             Debug.LogError("No hay puntos de spawn de monedas asignados.");
+        }
+    }
+
+    // Método para hacer respawn de las monedas después de que se destruyen
+    [PunRPC]
+    public void RespawnCoin(Vector3 spawnPosition)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // Esperar unos segundos antes de hacer respawn
+            PhotonNetwork.Instantiate(coinPrefab.name, spawnPosition, Quaternion.identity);
         }
     }
 }

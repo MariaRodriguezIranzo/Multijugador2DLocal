@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviourPun
 {
-    public int points = 1; // Puntos que otorga esta moneda al jugador que la recoge
+    public int points = 1;  // Puntos que otorga la moneda al jugador que la recoge
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -13,11 +13,20 @@ public class Coin : MonoBehaviourPun
             ScoreManager scoreManager = FindObjectOfType<ScoreManager>();
             if (scoreManager != null)
             {
-                scoreManager.AddScore(points); // Añadir puntos al marcador
+                // Llamamos al método AddScore a todos los jugadores mediante RPC
+                scoreManager.photonView.RPC("AddScore", RpcTarget.All, points);
             }
 
             // Destruir la moneda para todos los jugadores de manera sincronizada
             PhotonNetwork.Destroy(gameObject);
+
+            // Llamamos al CoinSpawner para que respawnee la moneda
+            CoinSpawner coinSpawner = FindObjectOfType<CoinSpawner>();
+            if (coinSpawner != null)
+            {
+                // Se le pasa la posición de spawn para el respawn
+                coinSpawner.RespawnCoin(transform.position);
+            }
         }
     }
 }
